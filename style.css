@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.mobile-frame {
+    width: 640px;
+    height: 1136px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: relative;
+}
+
+.logo {
+    max-width: 200px;
+    margin-bottom: 60px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #000;
+    align-self: flex-start;
+}
+
+h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.description {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.phone-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+}
+
+.prefix {
+    font-size: 18px;
+    color: #000;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.phone-wrapper input {
+    flex: 1;
+    border: none;
+    padding: 8px 0;
+    font-size: 18px;
+    outline: none;
+    background: transparent;
+}
+
+input {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    outline: none;
+    background: transparent;
+    text-align: left;
+}
+
+.dob-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.dob-group input {
+    width: 33.3%;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;
+    text-align: left;
+    font-style: italic;
+}
+
+.checkbox {
+    text-align: left;
+    margin: 15px 0;
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox input {
+    width: auto;
+    margin-right: 10px;
+    accent-color: #000;
+}
+
+button {
+    background-color: #000;
+    color: white;
+    padding: 16px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 30px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.container  {
+    background: grey;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.info {
+    font-size: 18px;
+    margin: 20px 0;
+    color: #333;
+    text-align: left;
+}
+
+.info span {
+    font-weight: bold;
+}
+
+.footer {
+    position: absolute;
+    bottom: 40px;
+    font-size: 14px;
+    color: #999;
+    width: calc(100% - 80px);
+    text-align: center;
+}
+
+.footer a {
+    color: #999;
+    text-decoration: none;
+}
+
+/* Mobile notch simulation */
+.notch {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 30px;
+    background-color: #111;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 10;
+}
+
+/* Remove number input arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}

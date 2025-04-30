@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulah - Account Information</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="mobile-frame">
+    <img src="mulah-logo.png" alt="Mulah Logo" class="logo">
+    <h2>Account Information</h2>
+
+    <div class="container">
+        <div class="info">Phone: <span id="phone"></span></div>
+        <div class="info">Name: <span id="name"></span></div>
+        <div class="info">Birthday: <span id="birthday"></span></div>
+        <div class="info">Email: <span id="email"></span></div>
+    </div>
+
+    <div class="footer">Powered by MulahRewards.com</div>
+  </div>
+
+  <script>
+    document.getElementById('phone').textContent = localStorage.getItem('phone') || 'N/A';
+    document.getElementById('name').textContent = localStorage.getItem('name') || 'N/A';
+    document.getElementById('birthday').textContent = localStorage.getItem('birthday') || 'N/A';
+    document.getElementById('email').textContent = localStorage.getItem('email') || 'N/A';
+  </script>
+</body>
+</html>

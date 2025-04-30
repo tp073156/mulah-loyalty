@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulah - Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="mobile-frame">
+    <img src="mulah-logo.png" alt="Mulah Logo" class="logo">
+    <h2>Registration</h2>
+    <p class="description">Please fill up your details.</p>
+    
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter Name">
+      <div class="error" id="nameErr">*Please insert a name.</div>
+    </div>
+
+    <div class="form-group">
+      <label>Birthday</label>
+      <div class="dob-group">
+        <input type="number" id="day" placeholder="DD" min="1" max="31">
+        <input type="number" id="month" placeholder="MM" min="1" max="12">
+        <input type="number" id="year" placeholder="YYYY">
+      </div>
+      <div class="error" id="dobErr">*Please insert your birthday.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Email Address">
+      <div class="error" id="emailErr">*Please insert a valid email address.</div>
+      <div class="checkbox">
+        <input type="checkbox" id="noEmail">
+        <label for="noEmail">No email address</label>
+      </div>
+    </div>
+
+    <button onclick="submitForm()">Continue</button>
+
+    <div class="footer">Powered by MulahRewards.com</div>
+  </div>
+
+  <script>
+    document.getElementById('noEmail').addEventListener('change', e => {
+      const email = document.getElementById('email');
+      email.disabled = e.target.checked;
+      if (e.target.checked) {
+        email.value = '';
+        document.getElementById('emailErr').style.display = 'none';
+      }
+    });
+
+    function submitForm() {
+      const name = document.getElementById('name').value.trim();
+      const day = document.getElementById('day').value.trim();
+      const month = document.getElementById('month').value.trim();
+      const year = document.getElementById('year').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const noEmail = document.getElementById('noEmail').checked;
+
+      let valid = true;
+      
+      // Validate name
+      if (!name) {
+        document.getElementById('nameErr').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('nameErr').style.display = 'none';
+      }
+      
+      // Validate birthday
+      if (!day || !month || !year || day.length !== 2 || month.length !== 2 || year.length !== 4) {
+        document.getElementById('dobErr').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('dobErr').style.display = 'none';
+      }
+      
+      // Validate email
+      if (!noEmail && (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) {
+        document.getElementById('emailErr').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('emailErr').style.display = 'none';
+      }
+
+      if (valid) {
+        localStorage.setItem('name', name);
+        localStorage.setItem('birthday', `${day}/${month}/${year}`);
+        localStorage.setItem('email', email || 'No email address');
+        window.location.href = 'page3.html';
+      }
+    }
+    
+    document.getElementById('day').addEventListener('input', function() {
+      if (this.value.length === 2) document.getElementById('month').focus();
+    });
+    document.getElementById('month').addEventListener('input', function() {
+      if (this.value.length === 2) document.getElementById('year').focus();
+    });
+    
+    document.getElementById('day').addEventListener('input', function() {
+      if (this.value.length > 2) this.value = this.value.slice(0, 2);
+    });
+    document.getElementById('month').addEventListener('input', function() {
+      if (this.value.length > 2) this.value = this.value.slice(0, 2);
+    });
+    document.getElementById('year').addEventListener('input', function() {
+      if (this.value.length > 4) this.value = this.value.slice(0, 4);
+    });
+  </script>
+</body>
+</html>

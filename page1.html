@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulah Loyalty - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="mobile-frame">
+    <img src="mulah-logo.png" alt="Mulah Logo" class="logo">
+    <div class="welcome">Hello,</div>
+    <h2>Check Your Loyalty Points & Rewards</h2>
+    <p class="description">Enter your mobile number</p>
+
+    <form id="phone-form">
+      <div class="phone-wrapper">
+        <span class="prefix">+60</span>
+        <input type="tel" id="phone" name="phone" placeholder="e.g. 173527250" maxlength="10" required>
+      </div>
+
+      <div id="error-message" class="error"></div>
+
+      <button type="submit">Check Loyalty Points</button>
+    </form>
+
+    <div class="footer">Powered by MulahRewards.com</div>
+  </div>
+
+  <script>
+    document.getElementById('phone-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const phone = document.getElementById('phone').value;
+      const errorMessage = document.getElementById('error-message');
+      
+      if (!/^\d+$/.test(phone) || phone !== '173527250') {
+        errorMessage.textContent = 'Please enter the correct mobile number (173527250)';
+      } else {
+        localStorage.setItem('phone', '+60' + phone);
+        window.location.href = 'page2.html';
+      }
+    });
+    
+    document.getElementById('phone').addEventListener('input', function(e) {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+  </script>
+</body>
+</html>
